@@ -1,5 +1,4 @@
-![logo](http://google.github.io/flatbuffers/fpl_logo_small.png) FlatBuffers
-===========
+# FlatBuffers
 
 ![Build status](https://github.com/google/flatbuffers/actions/workflows/build.yml/badge.svg?branch=master)
 [![BuildKite status](https://badge.buildkite.com/7979d93bc6279aa539971f271253c65d5e8fe2fe43c90bbb25.svg)](https://buildkite.com/bazel/flatbuffers)
@@ -14,7 +13,36 @@
 **FlatBuffers** is a cross platform serialization library architected for
 maximum memory efficiency. It allows you to directly access serialized data without parsing/unpacking it first, while still having great forwards/backwards compatibility.
 
-**Go to our [landing page][] to browse our documentation.**
+Go to the [landing page][] to browse the documentation.
+
+## Quickstart
+
+To build on Linux:
+```
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+make
+sudo make install
+```
+Build reference: https://google.github.io/flatbuffers/flatbuffers_guide_building.html
+
+To run the sample:
+```
+cd samples
+./../flatc --python monster.fbs
+python3 sample_binary_python3.py
+```
+
+Sample output for reference:
+```
+~/Documents/flatbuffers$ cd samples/
+~/Documents/flatbuffers/samples$ ./../flatc --python monster.fbs 
+~/Documents/flatbuffers/samples$ python3 sample_binary_python3.py 
+buffer: bytearray(b'\x1c\x00\x00\x00\x18\x00 \x00 \x00\x00\x00\x1e\x00\x18\x00\x00\x00\x14\x00\x13\x00\x0c\x00\x0b\x00\x04\x00\x18\x00\x00\x00L\x00\x00\x00\x00\x00\x00\x01 \x00\x00\x00\x00\x00\x00\x00$\x00\x00\x000\x00\x00\x00\x00\x00,\x01\x00\x00\x80?\x00\x00\x00@\x00\x00@@\x02\x00\x00\x004\x00\x00\x00\x1c\x00\x00\x00\n\x00\x00\x00\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\x00\x00\x03\x00\x00\x00Orc\x00\xf4\xff\xff\xff\x00\x00\x05\x00\x18\x00\x00\x00\x08\x00\x0c\x00\x08\x00\x06\x00\x08\x00\x00\x00\x00\x00\x03\x00\x0c\x00\x00\x00\x03\x00\x00\x00Axe\x00\x05\x00\x00\x00Sword\x00\x00\x00')
+monster: 150 300 b'Orc' 0
+equipped type: 1
+monster equipped: ['Bytes', 'Get', 'GetArrayAsNumpy', 'GetSlot', 'GetVOffsetTSlot', 'GetVectorAsNumpy', 'Indirect', 'Offset', 'Pos', 'String', 'Union', 'Vector', 'VectorLen', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slots__', '__str__', '__subclasshook__']
+The FlatBuffer was successfully created and verified!
+```
 
 ## Supported operating systems
 * Windows
